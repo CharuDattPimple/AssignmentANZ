@@ -4,11 +4,13 @@
   "description": "Framework design and automation for ANZ ",
   "main": "index.js",
   "scripts": {
-    "test": "npx wdio wdio.conf.js"
+    "cleanReports": "rm -r test/reports/allure-results/",
+    "test": "npx wdio wdio.conf.js",
+    "allure-report": "node_modules/.bin/allure generate --clean ./test/reports/allure-results && allure open"
   },
   "repository": {
-    "type": "",
-    "url": ""
+    "type": "git",
+    "url": "https://github.com/CharuDattPimple/AssignmentANZ.git"
   },
   "keywords": [
     "BDD",
@@ -18,12 +20,26 @@
   "author": "Charudattpimple@gmail.com",
   "license": "Unlicense",
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-syntax-export-default-from": "^7.8.3",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/register": "^7.9.0",
+    "@wdio/allure-reporter": "^7.5.7",
     "@wdio/cli": "^6.0.5",
-    "@wdio/cucumber-framework": "^7.5.3",
-    "@wdio/local-runner": "^7.5.7",
-    "@wdio/spec-reporter": "^7.5.7",
-    "@wdio/sync": "^7.5.7",
+    "@wdio/cucumber-framework": "^6.5.0",
+    "@wdio/local-runner": "^6.0.5",
+    "@wdio/mocha-framework": "^6.1.0",
+    "@wdio/selenium-standalone-service": "^6.0.16",
+    "@wdio/spec-reporter": "^6.0.16",
+    "@wdio/sync": "^6.1.0",
+    "allure-commandline": "^2.13.0",
     "chromedriver": "^90.0.0",
-    "wdio-chromedriver-service": "^7.0.0"
+    "wdio-chromedriver-service": "^6.0.2"
+  },
+  "dependencies": {
+    "chai": "^4.2.0",
+    "selenium-standalone": "^6.17.0",
+    "ts-node": "^9.1.1"
   }
 }
